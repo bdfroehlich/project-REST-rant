@@ -7,6 +7,7 @@ function home () {
         {/* will be placed inside of the body tag within the Default tag found in default.jsx */}
           <main>
               <h1>REST-Rant</h1>
+              <a href="/places">See Our Rants and Ravs!</a>
               <div>
                 <img src="/images/pancake-stack.jpg" alt="Pancake Stack"/>
                 <div>

@@ -6,9 +6,12 @@ function error404(){
         <Default>
             <main>
                 <h1>404: PAGE NOT FOUND</h1>
-                <p>Oops, sorry, this page does not exist!</p>
-                <div>
-                    <img src="http://placekitten.com/400/400" alt="Cat Picture"/>
+                <p className="text-center">Oops, sorry, this page does not exist!</p>
+                <div className="col">
+                    <div>
+                    <img className="rounded mx-auto d-block" src="http://placekitten.com/400/400" alt="Cat Picture"/>
+                    <p className="text-center">Photo by <a href="https://placekitten.com/">Place Kitten</a></p>
+                    </div>
                 </div>
             </main>
         </Default>
