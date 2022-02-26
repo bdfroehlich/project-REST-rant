@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express.Router()
+
 // GET /places
 app.get('/', (req, res) => {
   let places = [{
@@ -15,6 +16,7 @@ app.get('/', (req, res) => {
     cuisines: 'Coffee, Bakery',
     pic: 'http://placekitten.com/250/250'
   }]
+  // pass places array into render method to use the array inside of our view
     res.render('places/index', {places})
   })
 
