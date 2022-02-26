@@ -10,7 +10,7 @@ As a lover of food, I needed a place to easily store all of my restaurant visits
 
 ## Methods
 
-| Center-aligned |  Center-aligned |    Center-aligned |
+| Method |  Path |    Purpose |
 |     :---:      |      :---:      |        :---:      |
 | git status     |  git status     |    git status     |
 | git diff       |  git diff       |    git diff       |
