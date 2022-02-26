@@ -8,6 +8,7 @@ router.get('/', (req, res) => {
 
 // POST /places
 router.post('/', (req, res) => {
+  //console.log the body of the request on the backend server to check
   console.log(req.body)
   res.send('POST /places')
 })
