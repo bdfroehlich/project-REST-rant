@@ -29,4 +29,20 @@ router.get('/new', (req, res) => {
     res.render('places/new')
 })
 
+//Show /places/:id
+router.get('/:id', (req, res) => {
+  // casting the id to a number
+  let id = Number(req.params.id)
+  if (isNaN(id)) {
+    res.render('error404')
+  }
+  else if (!places[id]) {
+    res.render('error404')
+  }
+  else {
+    //pass places[id] into view
+    res.render('places/show', { place: places[id] })
+  }
+})
+
 module.exports = router;
