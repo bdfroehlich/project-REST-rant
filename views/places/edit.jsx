@@ -20,19 +20,19 @@ function edit_form ({place, id}) {
                     </div>
                     <div className="form-group col-sm-6">
                         <label htmlFor="pic">Place Picture</label>
-                        <input className="form-control" id="pic" name="pic" />
+                        <input className="form-control" id="pic" name="pic" defaultValue={place.pic} required />
                     </div>
                     <div className="form-group col-sm-6">
                         <label htmlFor="city">City</label>
-                        <input className="form-control" id="city" name="city" />
+                        <input className="form-control" id="city" name="city" defaultValue={place.city} required />
                     </div>
                     <div className="form-group col-sm-6">
                         <label htmlFor="state">State</label>
-                        <input className="form-control" id="state" name="state" />
+                        <input className="form-control" id="state" name="state" defaultValue={place.state} required />
                     </div>
                     <div className="form-group col-sm-6">
                         <label htmlFor="cuisines">Cuisines</label>
-                        <input className="form-control" id="cuisines" name="cuisines" required />
+                        <input className="form-control" id="cuisines" name="cuisines" defaultValue={place.cuisines} required />
                     </div>
                     </div>
                 <input className="btn btn-primary" type="submit" value="Add Place" />
