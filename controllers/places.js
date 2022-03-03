@@ -83,6 +83,7 @@ router.put('/:id', (req, res) => {
   if (isNaN(id)) {
       res.render('error404')
   }
+  //is this number inside of our index
   else if (!places[id]) {
       res.render('error404')
   }
