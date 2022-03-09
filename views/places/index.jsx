@@ -4,7 +4,7 @@ const Default = require('../default');
 function index (data) {
     let placesFormatted = data.places.map((place) => {
       return (
-        <div key={place.name} className="col">
+        <div key={place.name} className="col-6">
           <h2 className="text-center">
           <a href={`/places/${place.id}`} >
             {place.name}
