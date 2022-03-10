@@ -1,5 +1,6 @@
 const db = require('../models')
 
+//we have access to Place because we exported it in models/index.js
 db.Place.create([{
     name: 'H-Thai-ML',
     city: 'Seattle',
@@ -17,6 +18,7 @@ db.Place.create([{
 }])
 .then(()=>{
     console.log("Success!")
+    // NodeJS Process
     process.exit()
 })
 .catch(err => {
