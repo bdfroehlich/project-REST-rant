@@ -55,14 +55,6 @@ function show ({place, id}) {
               </form> 
             </div>
             <div>
-              <h1>Comments</h1>
-              <div className="d-flex flex-row justify-content-center">
-              <p className="text-center">
-                {comments}
-              </p>
-              </div>
-            </div>
-            <div>
               <form method="POST" action={`/places/${place.id}/comment`}> 
                     <div className="form-row">
                             <div className="form-group mx-auto col-sm-6 col-md-4 col-lg-3">
@@ -84,6 +76,14 @@ function show ({place, id}) {
                     </div>
                   <input className="btn btn-primary" type="submit" value="Add Comment" />
               </form> 
+            </div>
+            <div>
+              <h1>Comments</h1>
+              <div className="d-flex flex-row justify-content-center">
+              <p className="text-center">
+                {comments}
+              </p>
+              </div>
             </div>
           </div>     
         </main>

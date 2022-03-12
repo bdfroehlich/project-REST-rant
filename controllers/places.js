@@ -65,6 +65,11 @@ router.get('/:id/edit', (req, res) => {
   res.send('GET edit form stub')
 })
 
+// router.get('places/comment'), (req,res) => {
+//   console.log(req.body);
+//   res.render('places/newcomment')
+// }
+
 router.post('/:id/comment', (req, res) => {
   console.log(req.body)
   // convert checkbox in comment form to true or false value
