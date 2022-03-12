@@ -1,6 +1,8 @@
 const router = require('express').Router()
 const db = require('../models')
 
+
+//PLACES INDEX
 router.get('/', (req, res) => {
   db.Place.find()
   .then((places) => {
@@ -12,6 +14,7 @@ router.get('/', (req, res) => {
   })
 })
 
+//CREATE PLACE
 router.post('/', (req, res) => {
   // console.log(req.body)
   db.Place.create(req.body)
@@ -39,7 +42,7 @@ router.get('/new', (req, res) => {
   res.render('places/new')
 })
 
-
+//SHOW PLACE
 router.get('/:id', (req, res) => {
   db.Place.findById(req.params.id)
   .populate('comments')
@@ -53,10 +56,16 @@ router.get('/:id', (req, res) => {
   })
 })
 
+// UPDATE PLACE
 router.put('/:id', (req, res) => {
-  res.send('PUT /places/:id stub')
+  db.Place.findByIdAndUpdate(req.params.id, req.body, { new: true }) 
+    .then(updatedPlace => {
+      console.log(updatedPlace) 
+      res.redirect(`/places/${req.params.id}`) 
+    })
 })
 
+//DELETE PLACE
 router.delete('/:id', (req, res) => {
   db.Place.findByIdAndDelete(req.params.id) 
     .then(deletedPlace => { 
@@ -65,15 +74,21 @@ router.delete('/:id', (req, res) => {
     })
 })
 
+//EDIT PLACE
 router.get('/:id/edit', (req, res) => {
-  res.send('GET edit form stub')
+        db.Place.findById(req.params.id)
+          .then(foundPlace => {
+            // console.log(foundBread)
+            res.render('./places/edit', {
+                place: foundPlace, 
+            })
+          })
+    .catch(err => {
+      res.send('404')
+    })
 })
 
-// router.get('places/comment'), (req,res) => {
-//   console.log(req.body);
-//   res.render('places/newcomment')
-// }
-
+//CREATE COMMENT
 router.post('/:id/comment', (req, res) => {
   console.log(req.body)
   // convert checkbox in comment form to true or false value

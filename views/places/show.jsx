@@ -45,7 +45,7 @@ function show ({place, id}) {
               <h4 className="text-center">
                 Serving {place.cuisines}
               </h4>
-              <a href={`/places/${id}/edit`} className="btn btn-warning"> 
+              <a href={`/places/${place.id}/edit`} className="btn btn-warning"> 
                   Edit
               </a>      
               <form method="POST" action={`/places/${place.id}?_method=DELETE`}> 
