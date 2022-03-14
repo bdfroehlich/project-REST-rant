@@ -72,6 +72,9 @@ router.delete('/:id', (req, res) => {
       // console.log(deletedBread)
       res.status(303).redirect('/places')
     })
+    .catch(err => {
+      res.send('404')
+    })
 })
 
 //EDIT PLACE
@@ -119,8 +122,21 @@ router.post('/:id/comment', (req, res) => {
   })
 })
 
-router.delete('/:id/rant/:rantId', (req, res) => {
-    res.send('GET /places/:id/rant/:rantId stub')
+
+
+router.delete('/:id/comment/:commentId', (req, res) => {
+  db.Place.findById(req.params.id)
+  .then(place => {
+    console.log(place.id)
+    console.log(place.comments)
+      place.comments.findByIdAndDelete(req.comment.id)
+          .then(() => {
+              res.redirect(`/places/${req.params.id}`)
+          })
+      })
+  .catch(err => {
+      res.render('error404')
+  })
 })
 
 module.exports = router

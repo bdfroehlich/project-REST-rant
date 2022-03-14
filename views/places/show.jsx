@@ -7,16 +7,37 @@ function show ({place, id}) {
       No comments yet!
     </h3>
   )
+  let rating = (
+    <h2 className="inactive">
+      Not yet rated!
+    </h2>
+  )
   if (place.comments.length) {
-    comments = place.comments.map(c => {
+    comments = place.comments.map(comment => {
+      let sumRatings = place.comments.reduce((tot, comment) => {
+        return tot + comment.stars
+      }, 0)
+      let averageRating = Math.round(sumRatings / place.comments.length)
+      let stars = ''
+      for (let i = 0; i < averageRating; i++) {
+        stars += '⭐️'
+      }
+      rating = (
+        <h3>
+          {stars} stars
+        </h3>
+      )
       return (
         <div className="border">
-          <h2 className="rant">{c.rant ? 'Rant! 😡' : 'Rave! 😻'}</h2>
-          <h4>{c.content}</h4>
+          <h2 className="rant">{comment.rant ? 'Rant! 😡' : 'Rave! 😻'}</h2>
+          <h4>{comment.content}</h4>
           <h3>
-            <stong>- {c.author}</stong>
+            <stong>- {comment.author}</stong>
           </h3>
-          <h4>Rating: {c.stars}</h4>
+          <h4>Rating: {comment.stars}</h4>
+          <form method="POST" action={`/places/${place.id}/comment/${comment.id}?_method=DELETE`}>
+            <input type="submit" className="btn btn-danger" value="Delete Comment" />
+          </form>
         </div>
       )
     })
@@ -27,6 +48,7 @@ function show ({place, id}) {
             <div className="row">
             <h1>Show Page</h1>
             <h1>{place.name}</h1>
+            <br/>
             <div className="col-sm-6">
               <img className="rounded mx-auto d-block" src={place.pic} alt={place.name} />
               <h3 className="text-center">
@@ -36,7 +58,7 @@ function show ({place, id}) {
             <div className="col-sm-6">
               <h1>Rating</h1>
               <p className="text-center">
-                Not Rated
+                {rating}
               </p>
               <h2>Description</h2>
               <h3>
@@ -92,3 +114,4 @@ function show ({place, id}) {
 }
 
 module.exports = show
+

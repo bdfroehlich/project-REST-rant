@@ -11,12 +11,7 @@ function edit_form ({place, id}) {
                 <div className="row">
                     <div className="form-group col-sm-6">
                         <label htmlFor="name">Place Name</label>
-                        <input 
-                            className="form-control" 
-                            id="name" 
-                            name="name" 
-                            value={place.name} 
-                        required />
+                        <input className="form-control" id="name" name="name" defaultValue={place.name} required />
                     </div>
                     <div className="form-group col-sm-6">
                         <label htmlFor="pic">Place Picture</label>
@@ -34,8 +29,12 @@ function edit_form ({place, id}) {
                         <label htmlFor="cuisines">Cuisines</label>
                         <input className="form-control" id="cuisines" name="cuisines" defaultValue={place.cuisines} required />
                     </div>
+                    <div className="form-group col-sm-6">
+                        <label htmlFor="founded">Founded</label>
+                        <input className="form-control" id="founded" name="founded" defaultValue={place.founded} />
                     </div>
-                <input className="btn btn-primary" type="submit" value="Add Place" />
+                    </div>
+                <input className="btn btn-primary" type="submit" value="Update Place" />
                 </form>
           </main>
         </Default>
@@ -43,5 +42,3 @@ function edit_form ({place, id}) {
 }
 
 module.exports = edit_form
-
-
