@@ -69,7 +69,7 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
   db.Place.findByIdAndDelete(req.params.id) 
     .then(deletedPlace => { 
-      // console.log(deletedBread)
+      // console.log(deletedPlace)
       res.status(303).redirect('/places')
     })
     .catch(err => {
@@ -81,7 +81,7 @@ router.delete('/:id', (req, res) => {
 router.get('/:id/edit', (req, res) => {
         db.Place.findById(req.params.id)
           .then(foundPlace => {
-            // console.log(foundBread)
+            // console.log(foundPlace)
             res.render('./places/edit', {
                 place: foundPlace, 
             })
@@ -127,10 +127,10 @@ router.post('/:id/comment', (req, res) => {
 router.delete('/:id/comment/:commentId', (req, res) => {
   db.Place.findById(req.params.id)
   .then(place => {
-    console.log(place.id)
-    console.log(place.comments)
-      place.comments.findByIdAndDelete(req.comment.id)
-          .then(() => {
+    console.log(place)
+    db.Comment.findByIdAndDelete(comment.id)
+          .then(deletedComment => {
+            console.log(deletedComment)
               res.redirect(`/places/${req.params.id}`)
           })
       })

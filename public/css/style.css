@@ -42,4 +42,13 @@ main {
 
 #rant {
   margin-left: 5px;
+  margin-bottom: 10px;
+}
+
+#commentContainer {
+  margin-top:10px;
+}
+
+#comments {
+  color: cornflowerblue
 }

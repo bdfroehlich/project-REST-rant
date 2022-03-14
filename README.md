@@ -24,8 +24,8 @@ REST-Rant is an app where users can review restaurants.
 | PUT       |  /places/:id       |    Update a Particular Place       |
 | GET       |  /places/:id/edit       |    Form Page for Editing an Existing Place       |
 | DELETE       |  /places/:id       |    Delete a Particular Place       |
-| POST       |  /places/:id/rant       |    Create a Ran (Comment) About a Particular Place       |
-| DELETE       |  /places/:id/rant/:rantid       |    Delete a Rant (Comment) About a Particular Place       |
+| POST       |  /places/:id/comment       |    Create a Rant (Comment) About a Particular Place       |
+| DELETE       |  /places/:id/comment/:commentid       |    Delete a Rant (Comment) About a Particular Place       |
 | GET       |  *       |    404 Page (Matches Any Route Not Defined Above)       |
 
 ## Data Base
@@ -40,13 +40,14 @@ REST-Rant is an app where users can review restaurants.
 | state      |  string       |
 | cuisines       |  string       |
 | pic       |  string       |
+| comments       |  ref(comments) Object ID      |
 
 **rants / comments**
 
 | Field Name |  Data Type |
 |     :---:      |      :---:      |
 | _id      |  Object ID     |
-| place_id      |  ref(places) Object ID   |
+| place_id      |  ref(places) Object ID *Need to Implement to Avoid Orphaned Data   |
 | rant      |  boolean       |
 | rating      |  number       |
 | comment       |  string       |

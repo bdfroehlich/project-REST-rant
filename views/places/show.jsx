@@ -28,7 +28,7 @@ function show ({place, id}) {
         </h3>
       )
       return (
-        <div className="border">
+        <div id="comments" className="border border-primary">
           <h2 className="rant">{comment.rant ? 'Rant! 😡' : 'Rave! 😻'}</h2>
           <h4>{comment.content}</h4>
           <h3>
@@ -36,7 +36,7 @@ function show ({place, id}) {
           </h3>
           <h4>Rating: {comment.stars}</h4>
           <form method="POST" action={`/places/${place.id}/comment/${comment.id}?_method=DELETE`}>
-            <input type="submit" className="btn btn-danger" value="Delete Comment" />
+            <input type="submit" className="btn btn-danger" value="Delete" />
           </form>
         </div>
       )
@@ -99,7 +99,7 @@ function show ({place, id}) {
                   <input className="btn btn-primary" type="submit" value="Add Comment" />
               </form> 
             </div>
-            <div>
+            <div id="commentContainer">
               <h1>Comments</h1>
               <div className="d-flex flex-row justify-content-center">
               <p className="text-center">
